@@ -146,13 +146,7 @@ fun MoreScreen(
                     onPreferenceClick = { uriHandler.openUri(Constants.URL_HELP) },
                 )
             }
-            item {
-                TextPreferenceWidget(
-                    title = stringResource(MR.strings.label_donate),
-                    icon = Icons.Outlined.AttachMoney,
-                    onPreferenceClick = { uriHandler.openUri(Constants.URL_DONATE) },
-                )
-            }
+
         }
     }
 }

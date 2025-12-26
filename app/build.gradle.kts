@@ -86,11 +86,45 @@ android {
 
             matchingFallbacks.addAll(commonMatchingFallbacks)
         }
+        create("comix") {
+            initWith(release)
+
+            applicationIdSuffix = ".comix"
+            versionNameSuffix = "-comix"
+
+            matchingFallbacks.addAll(commonMatchingFallbacks)
+
+            // Comix signing will be configured via signingConfigs block
+        }
+    }
+
+    signingConfigs {
+        create("comix") {
+            val keystoreFile = file("comix.keystore")
+            if (keystoreFile.exists()) {
+                storeFile = keystoreFile
+                storePassword = System.getenv("COMIX_STORE_PASSWORD") ?: ""
+                keyAlias = "comix"
+                keyPassword = System.getenv("COMIX_KEY_PASSWORD") ?: ""
+            }
+        }
+    }
+
+    // Apply comix signing config after it's created
+    buildTypes.getByName("comix") {
+        val comixConfig = signingConfigs.findByName("comix")
+        if (comixConfig?.storeFile?.exists() == true) {
+            signingConfig = comixConfig
+        } else {
+            // Fallback to debug signing if keystore not found
+            signingConfig = signingConfigs.getByName("debug")
+        }
     }
 
     sourceSets {
         getByName("preview").res.srcDirs("src/debug/res")
         getByName("benchmark").res.srcDirs("src/debug/res")
+        getByName("comix").res.srcDirs("src/comix/res")
     }
 
     splits {

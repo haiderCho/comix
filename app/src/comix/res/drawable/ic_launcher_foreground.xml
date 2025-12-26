@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="432"
+    android:viewportHeight="432">
+  <!-- Stylized "C" for Comix with modern geometric design -->
+  <path
+      android:pathData="M216,140C169.06,140 131,178.06 131,225C131,271.94 169.06,310 216,310C239.35,310 260.53,300.91 276,286L256,266C245.36,276.64 231.41,283 216,283C183.97,283 158,257.03 158,225C158,192.97 183.97,167 216,167C231.41,167 245.36,173.36 256,184L276,164C260.53,149.09 239.35,140 216,140Z"
+      android:fillColor="#FFFFFF"/>
+  <!-- Accent highlight -->
+  <path
+      android:pathData="M270,195L290,175L305,190L285,210Z"
+      android:fillColor="#FF6B9D"/>
+  <!-- Secondary accent -->
+  <path
+      android:pathData="M280,230C280,238.28 273.28,245 265,245C256.72,245 250,238.28 250,230C250,221.72 256.72,215 265,215C273.28,215 280,221.72 280,230Z"
+      android:fillColor="#C44AFF"/>
+</vector>
